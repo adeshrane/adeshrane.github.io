@@ -1,166 +1,136 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adesh Rane - Software Developer Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 2rem;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        nav {
-            background: #444;
-            padding: 1rem;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1.1rem;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 2rem;
-        }
-        section {
-            margin-bottom: 2rem;
-        }
-        h2 {
-            color: #333;
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5rem;
-        }
-        .project {
-            background: #fff;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        @media (max-width: 600px) {
-            .container {
-                width: 90%;
-            }
-            header h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adesh Rane | Portfolio</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <header>
-        <h1>Adesh Rane</h1>
-        <p>Software Developer | Specializing in C++ and Qt</p>
-    </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hi, I'm [Your Name], a passionate software developer with expertise in C++ and Qt. I enjoy building efficient, user-friendly applications and have experience in creating robust software solutions. My goal is to leverage my skills to solve real-world problems.</p>
-        </section>
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>C++</li>
-                <li>Qt Framework</li>
-                <li>Software Design & Architecture</li>
-                <li>Version Control (Git)</li>
-                <li>Problem Solving & Algorithms</li>
-            </ul>
-        </section>
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Project 1: Task Management App</h3>
-                <p>Developed a cross-platform task management application using Qt and C++, featuring task creation, reminders, and a user-friendly interface.</p>
-                <a href="https://github.com/yourusername/project1" target="_blank">View on GitHub</a>
-            </div>
-            <div class="project">
-                <h3>Project 2: Data Visualization Tool</h3>
-                <p>Built a tool for visualizing complex datasets using C++ and Qt, with real-time updates and customizable widgets.</p>
-                <a href="https://github.com/yourusername/project2" target="_blank">View on GitHub</a>
-            </div>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-            <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-        </section>
+  <nav>
+    <div class="logo">ADESH</div>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <div>
+        <span class="hello">HELLO!</span>
+        <h1>I'm <span class="highlight">Adesh Rane</span></h1>
+        <h2>Software Developer</h2>
+        <div class="hero-buttons">
+          <a href="mailto:aadesh2004rane@gmail.com" class="btn-gold">HIRE ME</a>
+          <a href="#projects" class="btn-outline">MY WORKS</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <!-- Replace with your own image. -->
+        <img src="profile.jpg" alt="Adesh Rane Portrait" />
+      </div>
     </div>
-    <footer>
-        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
-    </footer>
+  </section>
+  <section id="about" class="about-section">
+    <div class="about-img">
+      <img src="profile.jpg" alt="Adesh Rane Portrait" />
+    </div>
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>Highly motivated Software Developer experienced in creating and maintaining cross-platform applications. Skilled in C++, Qt, and optimizing robust source code.</p>
+      <ul class="about-list">
+        <li><span>Name:</span> Adesh Rane</li>
+        <li><span>Date of Birth:</span> 20 April 1999</li>
+        <li><span>Address:</span> Torsole, Devgad, Sindhudurga, Maharashtra, India</li>
+        <li><span>Email:</span> aadesh2004rane@gmail.com</li>
+        <li><span>Phone:</span> +91 7219772599</li>
+      </ul>
+      <a href="Adesh-Rane.pdf" download class="btn-gold">DOWNLOAD CV</a>
+    </div>
+  </section>
+  <section id="skills" class="skills-section">
+    <h2>My Skills</h2>
+    <div class="skills-grid">
+      <div>
+        <span>C++</span>
+        <div class="bar"><div class="bar-inner" style="width: 95%"></div></div>
+      </div>
+      <div>
+        <span>Qt/CMake</span>
+        <div class="bar"><div class="bar-inner" style="width: 90%"></div></div>
+      </div>
+      <div>
+        <span>Core Java</span>
+        <div class="bar"><div class="bar-inner" style="width: 85%"></div></div>
+      </div>
+      <div>
+        <span>MySQL</span>
+        <div class="bar"><div class="bar-inner" style="width: 75%"></div></div>
+      </div>
+      <div>
+        <span>HTML/CSS/PHP</span>
+        <div class="bar"><div class="bar-inner" style="width: 85%"></div></div>
+      </div>
+      <div>
+        <span>Automation Testing (UFT, Qualitia)</span>
+        <div class="bar"><div class="bar-inner" style="width: 80%"></div></div>
+      </div>
+    </div>
+  </section>
+  <section id="projects" class="projects-section">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>AMPPS Stack Application</h3>
+        <p>Developed and maintained AMPPS, integrating open-source apps like Apache, MySQL, PHP, MongoDB, & FTP.</p>
+      </div>
+      <div class="project-card">
+        <h3>Work Viewer Application</h3>
+        <p>Designed and developed a cross-platform app for user activity tracking and screenshots on Windows/MacOS.</p>
+      </div>
+      <div class="project-card">
+        <h3>Employability Skill Tracking & Development System</h3>
+        <p>Laravel-based platform for monitoring, tracking, and visualizing student skill development.</p>
+      </div>
+    </div>
+  </section>
+  <section id="resume" class="resume-section">
+    <h2>Resume</h2>
+    <div class="resume-content">
+      <div>
+        <h3>Software Developer</h3>
+        <span>Softaculous Pvt. Ltd | Jan 2023 – Present</span>
+        <ul>
+          <li>AMPPS, WorkViewer, cross-platform C++/Qt dev, source code optimization, integrations.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Automation Tester</h3>
+        <span>Zensoft Pvt. Ltd | Nov 2021 – Dec 2022</span>
+        <ul>
+          <li>Automated testing, UFT, Qualitia scripting, regression & performance checks for BSE's platform.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Education</h3>
+        <ul>
+          <li>B.E. (CSE), SSPM's CoE, Mumbai Univ., CGPI 7.78 (2021)</li>
+          <li>12th, NSP Jr College Devgad (2017)</li>
+          <li>10th, Shirgaon HS Shirgaon (2015)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="contact-section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:aadesh2004rane@gmail.com">aadesh2004rane@gmail.com</a> | Phone: +91 7219772599</p>
+  </section>
+  <footer>
+    <span>© 2025 Adesh Rane</span>
+  </footer>
 </body>
 </html>
