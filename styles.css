@@ -1,0 +1,263 @@
+/* Reset & fonts */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #111;
+  color: #fff;
+}
+a { color: inherit; text-decoration: none; }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #181818;
+  padding: 1rem 2rem;
+}
+nav .logo {
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 2px;
+  color: #FFD366;
+}
+nav ul {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+}
+nav ul li a {
+  color: #fff;
+  padding-bottom: 6px;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+nav ul li a.active, nav ul li a:hover {
+  color: #FFD366;
+  border-bottom: 2px solid #FFD366;
+}
+
+.hero-section {
+  background: #181818;
+  display: flex;
+  align-items: center;
+  min-height: 400px;
+  padding: 3rem 0 2rem 0;
+  justify-content: center;
+}
+.hero-content {
+  display: flex;
+  max-width: 1150px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.hero-section .hello {
+  color: #FFD366;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.hero-section h1 {
+  font-size: 2.8em;
+  margin: .2em 0;
+  font-weight: 700;
+}
+.hero-section .highlight {
+  color: #FFD366;
+}
+.hero-section h2 {
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #aaa;
+  margin: .3em 0 1.2em 0;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+.btn-gold, .btn-outline {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: .7em 1.7em;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-right: 0.3em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.btn-gold {
+  background: #FFD366;
+  color: #181818;
+  transition: background .2s;
+}
+.btn-gold:hover {
+  background: #ffb700;
+}
+.btn-outline {
+  background: transparent;
+  color: #FFD366;
+  border: 2px solid #FFD366;
+  transition: background .2s, color .2s;
+}
+.btn-outline:hover {
+  background: #FFD366;
+  color: #181818;
+}
+.hero-img img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #FFD366;
+  background: #eee;
+}
+
+/* Section styling */
+section {
+  padding: 3em 2em;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.about-section {
+  background: #171717;
+  display: flex;
+  align-items: center;
+  gap: 3em;
+}
+.about-img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 6px solid #FFD366;
+  object-fit: cover;
+}
+.about-content h2 {
+  margin-top: 0;
+}
+.about-content p {
+  color: #bbb;
+  margin: 1em 0;
+}
+.about-list {
+  list-style: none;
+  padding: 0;
+  color: #ddd;
+  margin-bottom: 1em;
+}
+.about-list li span {
+  display: inline-block;
+  width: 140px;
+  color: #FFD366;
+  font-weight: 500;
+}
+.skills-section h2,
+.projects-section h2,
+.resume-section h2,
+.contact-section h2 {
+  color: #FFD366;
+  font-size: 2em;
+  margin-bottom: 1em;
+  font-weight: 700;
+  text-align: center;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5em;
+}
+.skills-grid > div {
+  margin-bottom: 1.2em;
+}
+.skills-grid span {
+  font-size: 1.15em;
+  margin-bottom: .3em;
+  display: inline-block;
+}
+.bar {
+  height: 8px;
+  background: #1d1d1d;
+  border-radius: 10px;
+  margin-top: 7px;
+  overflow: hidden;
+}
+.bar-inner {
+  display: block;
+  height: 100%;
+  background: #FFD366;
+  border-radius: 10px;
+}
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+}
+.project-card {
+  background: #181818;
+  border-radius: 16px;
+  padding: 1.2em 1.5em;
+  width: 290px;
+  box-shadow: 0 2px 16px #0002;
+}
+.project-card h3 {
+  color: #FFD366;
+}
+.project-card p {
+  color: #ccc;
+  margin-top: .6em;
+}
+
+.resume-section .resume-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: space-between;
+}
+.resume-content > div {
+  background: #161616;
+  border-radius: 12px;
+  padding: 1.2em 1.5em;
+  width: 320px;
+  margin-bottom: 1em;
+}
+.resume-content h3 {
+  color: #FFD366;
+  font-size: 1.1em;
+}
+
+.contact-section {
+  text-align: center;
+}
+.contact-section p {
+  color: #FFD366;
+  font-size: 1.1em;
+}
+
+footer {
+  background: #151515;
+  text-align: center;
+  padding: 1em 0;
+  color: #ddd;
+  font-size: 0.97em;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 900px) {
+  .hero-content,
+  .about-section,
+  .resume-section .resume-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+  }
+  section {
+    padding: 2em 1em;
+  }
+  .about-section {
+    gap: 1.5em;
+  }
+}
