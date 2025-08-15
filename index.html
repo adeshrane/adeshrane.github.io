@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adesh Rane | Portfolio</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #FFD366;
+      --dark: #181818;
+      --light: #fff;
+      --gray: #222;
+    }
+    body {
+      background: var(--dark);
+      color: var(--light);
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .navbar {
+      background: var(--dark);
+    }
+    .navbar .navbar-brand {
+      font-weight: bold;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+    .nav-link, .navbar-nav .nav-link.active {
+      color: var(--light);
+      font-weight: 500;
+      margin-right: 1rem;
+      transition: color .2s;
+    }
+    .nav-link.active, .nav-link:hover {
+      color: var(--gold);
+    }
+    .hero-section {
+      min-height: 80vh;
+      padding: 3rem 0;
+      display: flex;
+      align-items: center;
+      background: var(--gray);
+    }
+    .highlight { color: var(--gold); }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--gray);
+      border: none;
+      padding: .7em 2em;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-right: 1em;
+      box-shadow: none;
+      transition: background .2s;
+    }
+    .btn-gold:hover {
+      background: #e5bb2a;
+      color: #181818;
+    }
+    .btn-outline-gold {
+      border: 2px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      border-radius: 25px;
+      font-weight: bold;
+      padding: .7em 2em;
+      transition: background .2s, color .2s;
+    }
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: var(--gray);
+    }
+    .profile-img {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid var(--gold);
+      margin: 0 auto;
+      display: block;
+      background: #fff;
+    }
+    .about-content ul {
+      padding-left: 0;
+      list-style: none;
+    }
+    .about-content ul span {
+      color: var(--gold);
+      font-weight: 500;
+      min-width: 120px;
+      display: inline-block;
+    }
+    .skills-bar {
+      background: #242424;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1em;
+    }
+    .skills-bar-inner {
+      height: 1.1em;
+      background: var(--gold);
+      border-radius: 10px;
+      color: #181818;
+      font-weight: 600;
+      padding-left: .7em;
+    }
+    .project-card {
+      background: #242424;
+      border-radius: 16px;
+      padding: 1.2em;
+      height: 100%;
+      box-shadow: 0 4px 20px #0002;
+    }
+    footer {
+      background: #181818;
+      color: #fff;
+      text-align: center;
+      padding: 1em 0;
+    }
+    @media (max-width: 767px) {
+      .hero-section {
+        padding: 2rem 0;
+        flex-direction: column;
+        text-align: center;
+      }
+      .profile-img {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">ADESH</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="row align-items-center flex-md-row flex-column-reverse">
+        <div class="col-md-7 text-md-start text-center">
+          <span class="d-block mb-2" style="color: #FFD366; font-weight: 700; letter-spacing: 1px;">HELLO!</span>
+          <h1 class="mb-0" style="font-size:2.8em;">I'm <span class="highlight">Adesh Rane</span></h1>
+          <p class="lead mb-4">Software Developer | C++, Qt | Cross-Platform Solutions</p>
+          <a href="mailto:aadesh2004rane@gmail.com" class="btn btn-gold mb-2">HIRE ME</a>
+          <a href="#projects" class="btn btn-outline-gold mb-2">MY WORKS</a>
+        </div>
+        <div class="col-md-5 mb-4 mb-md-0">
+          <img src="profile.jpg" alt="Adesh Rane" class="profile-img"/>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 highlight" style="font-weight:700;">About Me</h2>
+      <div class="row align-items-center">
+        <div class="col-md-5 mb-3 mb-md-0 text-center">
+          <img src="profile.jpg" alt="Adesh Rane" class="profile-img"/>
+        </div>
+        <div class="col-md-7 about-content">
+          <p>Highly motivated Software Developer experienced in creating and maintaining cross-platform applications. Skilled in C++, Qt, and optimizing robust source code.</p>
+          <ul>
+            <li><span>Name:</span> Adesh Rane</li>
+            <li><span>Date of Birth:</span> 20 April 1999</li>
+            <li><span>Address:</span> Torsole, Devgad, Sindhudurga, Maharashtra, India</li>
+            <li><span>Email:</span> aadesh2004rane@gmail.com</li>
+            <li><span>Phone:</span> +91 7219772599</li>
+          </ul>
+          <a href="Adesh-Rane.pdf" download class="btn btn-gold mt-3">DOWNLOAD CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Resume Section -->
+  <section id="resume" class="py-5 bg-dark">
+    <div class="container">
+      <h2 class="text-center mb-4 highlight" style="font-weight:700;">Resume</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="project-card">
+            <h5 class="highlight">Software Developer</h5>
+            <small>Softaculous Pvt. Ltd | Jan 2023 – Present</small>
+            <ul>
+              <li>AMPPS, WorkViewer, cross-platform C++/Qt dev, source code optimization, integrations.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="project-card">
+            <h5 class="highlight">Automation Tester</h5>
+            <small>Zensoft Pvt. Ltd | Nov 2021 – Dec 2022</small>
+            <ul>
+              <li>Automated testing, UFT, Qualitia scripting, regression & performance checks for BSE's platform.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="project-card mt-4">
+            <h5 class="highlight">Education</h5>
+            <ul>
+              <li>B.E. (CSE), SSPM's CoE, Mumbai Univ., CGPI 7.78 (2021)</li>
+              <li>12th, NSP Jr College Devgad (2017)</li>
+              <li>10th, Shirgaon HS Shirgaon (2015)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 highlight" style="font-weight:700;">My Skills</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-2">C++ <span class="float-end">95%</span></div>
+          <div class="skills-bar mb-3"><div class="skills-bar-inner" style="width:95%;">&nbsp;</div></div>
+          <div class="mb-2">Qt/CMake <span class="float-end">90%</span></div>
+          <div class="skills-bar mb-3"><div class="skills-bar-inner" style="width:90%"></div></div>
+          <div class="mb-2">Core Java <span class="float-end">85%</span></div>
+          <div class="skills-bar mb-3"><div class="skills-bar-inner" style="width:85%"></div></div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-2">MySQL <span class="float-end">75%</span></div>
+          <div class="skills-bar mb-3"><div class="skills-bar-inner" style="width:75%"></div></div>
+          <div class="mb-2">HTML/CSS/PHP <span class="float-end">85%</span></div>
+          <div class="skills-bar mb-3"><div class="skills-bar-inner" style="width:85%"></div></div>
+          <div class="mb-2">Automation Testing (UFT, Qualitia) <span class="float-end">80%</span></div>
+          <div class="skills-bar mb-3"><div class="skills-bar-inner" style="width:80%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects" class="py-5 bg-dark">
+    <div class="container">
+      <h2 class="text-center mb-4 highlight" style="font-weight:700;">Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="project-card">
+            <h5 class="highlight">AMPPS Stack Application</h5>
+            <p>Developed and maintained AMPPS, integrating open-source apps like Apache, MySQL, PHP, MongoDB, and FTP.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="project-card">
+            <h5 class="highlight">Work Viewer Application</h5>
+            <p>Designed and developed a cross-platform app for user activity tracking and screenshots on Windows/macOS.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="project-card">
+            <h5 class="highlight">Employability Skill Tracking & Development System</h5>
+            <p>Laravel-based platform for monitoring, tracking, and visualizing student skill development.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container text-center">
+      <h2 class="mb-4 highlight" style="font-weight:700;">Contact</h2>
+      <p>Email: <a href="mailto:aadesh2004rane@gmail.com" style="color:#FFD366;">aadesh2004rane@gmail.com</a></p>
+      <p>Phone: +91 7219772599</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Adesh Rane
+  </footer>
+
+  <!-- Bootstrap 5 JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
